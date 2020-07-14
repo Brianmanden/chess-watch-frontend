@@ -1,4 +1,25 @@
 <h2>Dashboard</h2>
+<label
+  >Spilletid:
+  <input
+    [(ngModel)]="playingTime"
+    type="number"
+    placeholder="Spilletid (min.)"
+    min="1"
+    max="60"
+  />
+  <button [disabled]="!(playingTime > 0)" (click)="startGame(playingTime)">
+    <span>
+      {{
+        playingTime > 0
+          ? "Sæt spilletid til " + playingTime + " minutter og start spillet."
+          : "X"
+      }}
+    </span>
+  </button>
+  <button (click)="pauseGame()">Pause</button>
+  <button>Næste spiller</button>
+</label>
 <div class="mat-app-background basic-container">
   <mat-tab-group
     animationDuration="0ms"
@@ -16,7 +37,7 @@
           mode="determinate"
           value="40"
         ></mat-progress-bar>
-        <p>Time left: 10:22</p>
+        <p>{{ playerTimes[0] }}</p>
       </div>
     </mat-tab>
     <mat-tab label="Player 2" id="player2">
@@ -31,7 +52,7 @@
           mode="determinate"
           value="40"
         ></mat-progress-bar>
-        <p>Time left: 8:25</p>
+        <p>{{ playerTimes[1] }}</p>
       </div>
     </mat-tab>
     <mat-tab label="Player 3" id="player3">
@@ -46,7 +67,7 @@
           mode="determinate"
           value="40"
         ></mat-progress-bar>
-        <p>Time left: 11:32</p>
+        <p>{{ playerTimes[2] }}</p>
       </div>
     </mat-tab>
     <mat-tab label="Player 4" id="player4">
@@ -61,8 +82,9 @@
           mode="determinate"
           value="40"
         ></mat-progress-bar>
-        <p>Time left: 12:42</p>
+        <p>{{ playerTimes[3] }}</p>
       </div>
     </mat-tab>
   </mat-tab-group>
 </div>
+<span *ngIf="gameMessage != ''">{{ gameMessage }}</span>
