@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   private currentPlayer: number = 0;
   private numberOfPlayers: number = 4;
+  // setInterval
   private gameTicker;
+  private tickMillis = 100;
 
   public gameMessage: string;
   public playerTimes: number[] = [];
@@ -29,7 +31,7 @@ export class DashboardComponent implements OnInit {
     clearInterval(this.gameTicker);
     this.gameTicker = setInterval(
       this.ticker.bind(this),
-      1000,
+      this.tickMillis,
       this.currentPlayer
     );
   }
@@ -44,7 +46,7 @@ export class DashboardComponent implements OnInit {
     }
     this.gameTicker = setInterval(
       this.ticker.bind(this),
-      1000,
+      this.tickMillis,
       this.currentPlayer
     );
   }
