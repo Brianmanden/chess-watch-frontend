@@ -15,4 +15,9 @@ export class DashboardComponent implements OnInit {
   ticker(playerId?: string): void {
     console.log('tick');
   }
+
+  onTabChange(event) {
+    console.log(event.index);
+    console.log(event.tab);
+  }
 }
