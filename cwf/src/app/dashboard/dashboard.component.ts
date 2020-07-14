@@ -8,5 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    setInterval(this.ticker, 1000);
+  }
+
+  ticker(playerId?: string): void {
+    console.log('tick');
+  }
 }
