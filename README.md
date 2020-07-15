@@ -6,6 +6,8 @@
 
 ### After install run: `npm install`
 
+### Change to directory cwf: `cd cwf/`
+
 ### Then run: `ng serve --open`
 
 ## Web app opens in a new browser tab
