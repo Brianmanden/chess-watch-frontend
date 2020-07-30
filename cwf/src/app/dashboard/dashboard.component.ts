@@ -6,15 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  private currentPlayer: number = 0;
-  private numberOfPlayers: number = 4;
+  private currentPlayer = 0;
+  private numberOfPlayers = 4;
   // setInterval
   private gameTicker;
   private tickMillis = 100;
 
   public gameMessage: string;
   public playerTimes: number[] = [];
-  public playingTime: number = 0;
+  public playingTime = 0;
 
   constructor() {}
 
