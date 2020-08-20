@@ -12,8 +12,17 @@
 
 ## Web app opens in a new browser tab
 
----
+## Websocket Protocol
+
+Protocol Messages:
+
+      type  := [ BEGIN, END, NEW, PUSH ]
+
+      BEGIN := 'BEGIN'
+      END   := 'END'
+      NEW   := 'NEW' ID
+      PUSH  := 'PUSH' <ID>
+      ID    := 16 byte string
 
 ## Dev notes
 ### Socket on port 11167 / 8765
-### www.umbraculum.org
