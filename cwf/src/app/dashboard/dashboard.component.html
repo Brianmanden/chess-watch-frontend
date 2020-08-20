@@ -18,11 +18,12 @@
     </span>
   </button>
   <button (click)="pauseGame()">Pause</button>
-  <button>Næste spiller</button>
+  <button (click)="nextPlayer(playerTabs)">Næste spiller</button>
 </label>
 <div class="mat-app-background basic-container">
   <mat-tab-group
     animationDuration="0ms"
+    #playerTabs
     (selectedTabChange)="onTabChange($event)"
   >
     <mat-tab label="Player 1" id="player1">

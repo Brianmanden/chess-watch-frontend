@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabGroup } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  private currentPlayer: number = 0;
-  private numberOfPlayers: number = 4;
+  private currentPlayer = 0;
+  private numberOfPlayers = 4;
   // setInterval
   private gameTicker;
   private tickMillis = 100;
 
   public gameMessage: string;
   public playerTimes: number[] = [];
-  public playingTime: number = 0;
+  public playingTime = 0;
 
   constructor() {}
 
@@ -38,6 +39,19 @@ export class DashboardComponent implements OnInit {
 
   pauseGame(): void {
     clearInterval(this.gameTicker);
+  }
+
+  nextPlayer(playerTabs: MatTabGroup): void{
+    if(!playerTabs || !(playerTabs instanceof MatTabGroup)) { return }
+    this.currentPlayer = playerTabs.selectedIndex;
+    
+    if(this.currentPlayer == playerTabs._tabs.length - 1){
+      this.currentPlayer = 0;
+    }else{
+      this.currentPlayer++;
+    }
+
+    playerTabs.selectedIndex = this.currentPlayer;
   }
 
   startGame(playingTime: number): void {

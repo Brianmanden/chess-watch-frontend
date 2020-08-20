@@ -23,3 +23,6 @@ Protocol Messages:
       NEW   := 'NEW' ID
       PUSH  := 'PUSH' <ID>
       ID    := 16 byte string
+
+## Dev notes
+### Socket on port 11167 / 8765
