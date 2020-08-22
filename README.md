@@ -12,6 +12,8 @@
 
 ## Web app opens in a new browser tab
 
+---
+
 ## Websocket Protocol
 
 Protocol Messages:
@@ -25,4 +27,5 @@ Protocol Messages:
       ID    := 16 byte string
 
 ## Dev notes
+
 ### Socket on port 11167 / 8765
